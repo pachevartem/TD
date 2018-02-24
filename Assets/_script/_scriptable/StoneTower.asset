@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e818ed7725ba349d2b27e52e683e43d2, type: 3}
+  m_Name: StoneTower
+  m_EditorClassIdentifier: 
+  Name: 
+  Levels:
+  - {fileID: 1304734535820300, guid: 8a183abc2160d4b02bf1c47e632f1ec7, type: 2}
+  - {fileID: 1430975612791706, guid: d902d901e08f846349ad8052ad53e6a7, type: 2}
+  - {fileID: 1268275962733770, guid: a3d0d53c5f83e457bae59a9588eea280, type: 2}
+  CompleteBuilding: {fileID: 0}
+  Bolt: {fileID: 1033288449675722, guid: 355ee959de0fb451083c8c5c9cdd22e6, type: 2}
+  Raduis: 4
+  CountHit: 100
+  MultyplayHit: 2
