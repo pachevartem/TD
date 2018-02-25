@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\maya.MAYA-PC\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_TDAR.-541693475.00" t="ExcludeRecursive" />
+    <e p="D:\UnitySources\TDAR" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="_script" t="Include">
+          <e p="AgentController.cs" t="Include" />
+          <e p="Cell.cs" t="Include" />
+          <e p="CellController.cs" t="Include" />
+          <e p="EnemyController.cs" t="Include" />
+          <e p="GameController.cs" t="Include" />
+          <e p="Helper.cs" t="Include" />
+          <e p="InputController.cs" t="Include" />
+          <e p="TowerExample.cs" t="Include" />
+          <e p="UIController.cs" t="Include" />
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="TDAR.sln" t="IncludeFlat" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

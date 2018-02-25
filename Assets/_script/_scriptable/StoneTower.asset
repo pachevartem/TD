@@ -18,6 +18,10 @@ MonoBehaviour:
   - {fileID: 1268275962733770, guid: a3d0d53c5f83e457bae59a9588eea280, type: 2}
   CompleteBuilding: {fileID: 0}
   Bolt: {fileID: 1033288449675722, guid: 355ee959de0fb451083c8c5c9cdd22e6, type: 2}
+  EnemyLayer:
+    serializedVersion: 2
+    m_Bits: 2147483648
   Raduis: 4
   CountHit: 100
+  FireDelay: 1
   MultyplayHit: 2

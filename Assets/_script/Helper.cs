@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ArtelVR
 {
     //Обработчик нажатия на ячейку 
-    public delegate void ClickCell(Cell cell);
+    public delegate void ClickCell(CellController cell);
 
     public delegate void SelectTarget(GameObject aim);
     

@@ -111,20 +111,8 @@ namespace ArtelVR
             MydeltaTime += Time.deltaTime;
         }
 
-        void SortOutQueue(ref Queue<GameObject> queue)
-        {
-            while (!isVisible())
-            {
-                if (queue.Count==0)
-                {
-                   SetTarget(null);
-                   break;
-                }
-                print("1");
-                SetTarget(EnemysQueue.Dequeue());
-            }
-        }
-
+        
+        
         void SetTarget(GameObject target)
         {
             if (!target)
@@ -153,11 +141,7 @@ namespace ArtelVR
                 }
                 else
                 {
-                    while (!isVisible())
-                    {
-                        SortOutQueue(ref EnemysQueue);
-                        break;
-                    }
+                    
                 }
                 yield return null;
             }

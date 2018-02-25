@@ -13,7 +13,7 @@ namespace ArtelVR
 		[Header("Канвас с выбором типа башни")]
 		public GameObject UIChooseTower;
 		
-		Cell currentCell; //TODO: Надовспомнить зачем ты статичная
+		CellController currentCell; //TODO: Надовспомнить зачем ты статичная
 
 		[Header("Перетяни сюда типы башень (созданные ScriptableObject")]
 		public List<TowerExample> TowersType  = new List<TowerExample>();
@@ -25,7 +25,7 @@ namespace ArtelVR
 			
 		}
 
-		private void OnOnClickCell(Cell cell)
+		private void OnOnClickCell(CellController cell)
 		{
 			SetActiveUIChooseTower(true);
 			currentCell = cell;
@@ -45,11 +45,11 @@ namespace ArtelVR
 		{
 			if (numberTower == 0)
 			{
-				currentCell.SetupCell(TowersType[0]);
+				currentCell.ConstructorSell(TowersType[0]);
 			}
 			if (numberTower == 1)
 			{
-				currentCell.SetupCell(TowersType[1]);
+				currentCell.ConstructorSell(TowersType[1]);
 			}
 			
 			

@@ -33,7 +33,7 @@ namespace ArtelVR
                 Debug.DrawLine(ray.origin, hit.point, Color.magenta);
                 if (Input.GetMouseButtonUp(0))
                 {
-                    OnClickCell (hit.collider.gameObject.GetComponent<Cell>());
+                    OnClickCell (hit.collider.gameObject.GetComponent<CellController>());
                 }
             }
         }
