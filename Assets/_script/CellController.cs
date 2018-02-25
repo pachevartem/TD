@@ -6,46 +6,74 @@ namespace ArtelVR
 {
     public class CellController : MonoBehaviour
     {
+        [Header("Перетащи кнопку для улучшения башни")]
         public GameObject UpgrateUI;
 
+        #region Приватные Переменные
 
-        private List<GameObject> _lvlModels = new List<GameObject>();
-        private GameObject _bullet;
-        private float _affectedArea;
-        private float _damage;
-        private float _fireDelay;
-        private LayerMask _enemyLayer;
-        private Vector3 _spawnBolt;
-
-
-        private GameObject targetEnemy;
-
-        //счетчик
-        private float _dt = 0;
-
-        private int _lvlTower = 0;
+        //коллекция башень (уровень 1-N)
+        private List<GameObject> _lvlModels = new List<GameObject>(); 
         
+        // моедль снаряда
+        private GameObject _bullet;        
+
+        // радиус поражения
+        private float _affectedArea;        
+
+        // урон снаряда
+        private float _damage; //TODO: перенести в пулю         
+
+        // задержка стрельбы башни
+        private float _fireDelay;         
+
+        // слой с противниками
+        private LayerMask _enemyLayer;
+        
+        // место появления снарада
+        private Vector3 _spawnBolt;
+        
+        // стартовое количество в пуле снарядов
+        private int _cBullet = 3;
+        
+        // цель, которую атакует башня
+        private GameObject targetEnemy;
+        
+        // список пула снарядов
+        private List<GameObject> _poolBullets = new List<GameObject>();
+        
+        // флаг обнаружения врагов
+        private bool isDetected;
+        
+        // очередь врагов в зоне поражения башни
+        private Queue<GameObject> Enemys = new Queue<GameObject>();
+        
+        //счетчик времени (используется для атаки башни)
+        private float _dt = 0;
+        
+        // индификатор уровня башни (ниже есть свойство)
+        private int _lvlTower = 0;
+
         //свойства 
-        public int LvlTower
+        private int LvlTower
         {
             get { return _lvlTower; }
             set
             {
                 print(value);
-                
-                if (value >= _lvlModels.Count-1)
+
+                if (value >= _lvlModels.Count - 1)
                 {
                     Helper.SetActive(UpgrateUI, false);
-//                    return;
                 }
                 Helper.SetActive(_lvlModels[LvlTower], false);
                 _lvlTower = value;
                 Helper.SetActive(_lvlModels[LvlTower], true);
             }
         }
-
+        #endregion
+        
         //конструкор ячейки
-        public  void ConstructorSell(TowerExample t)
+        public void ConstructorSell(TowerExample t)
         {
             _bullet = t.Bolt;
             _affectedArea = t.Raduis;
@@ -53,67 +81,68 @@ namespace ArtelVR
             _fireDelay = t.FireDelay;
             _enemyLayer = t.EnemyLayer;
             _spawnBolt = transform.position + Vector3.up * 0.4f; // магическое число заменить на высоту башни
-            SetTarget(null);
-            CrTower(t);
-            offColider();
-            Helper.SetActive(UpgrateUI, true);
+           
+            SetTarget(null); 
+            CrTower(t); //построить башни
+            OffColider(); //выключить взаимодействие с башней
+            Helper.SetActive(UpgrateUI, true); // включить кнопку Upgrade
+            CreatePoolBullets();  // сгенерировать стартовый надо пуль
             subscription(); // обязательно в окнце конструктора
         }
 
+        //Создать башни
         void CrTower(TowerExample t)
         {
             for (int i = 0; i < t.Levels.Count; i++)
             {
-               _lvlModels.Add(Instantiate(t.Levels[i], transform.position, Quaternion.identity, transform));
+                _lvlModels.Add(Instantiate(t.Levels[i], transform.position, Quaternion.identity, transform));
                 Helper.SetActive(_lvlModels[i], false);
             }
             Helper.SetActive(_lvlModels[0], true);
         }
 
-        void offColider()
-        {
-            GetComponent<BoxCollider>().enabled = false;
-        }
-
+        // метод используются во внешнем интерфейсе через панел Inspector
         public void UpgrateTower()
         {
             LvlTower++;
         }
 
+        //начать отсчет
         void TimerOn()
         {
             _dt += Time.deltaTime;
         }
-
+        
+        // установить цель для атаки
         void SetTarget(GameObject target)
         {
             targetEnemy = target;
         }
-
-        private bool isDetected;
-        private Queue<GameObject> Enemys = new Queue<GameObject>();
+        
+        // Сканирование местности
         void UpdateScan()
         {
             TimerOn();
-
+            //если местность пуста
             if (!ScanArea())
             {
                 return;
             }
             
+            // если местность не пуста, но враги не обнаружены
             if (ScanArea() && !isDetected)
             {
                 isDetected = true;
-                Helper.FillQueqe(Physics.OverlapSphere(transform.position,_affectedArea,_enemyLayer), ref Enemys);
+                Helper.FillQueqe(Physics.OverlapSphere(transform.position, _affectedArea, _enemyLayer), ref Enemys);
                 SetTarget(Enemys.Peek()); //TODO: eventFire changes here
                 return;
             }
-            
-            if (!CheckArea())
+            // если враги обнаружены, необзодимо проверить текущую цель на нахождение в заоне поражения
+            if (!CheckArea() && targetEnemy)
             {
-                while (!CheckArea())
+                while (!CheckArea()) // если цель вышла из зоны поражения, то найти следующий элемент в очереди, который находится в зоне поражения
                 {
-                    if (Enemys.Count ==0)
+                    if (Enemys.Count == 0)
                     {
                         SetTarget(null);
                         isDetected = false;
@@ -122,44 +151,87 @@ namespace ArtelVR
                     SetTarget(Enemys.Dequeue());
                 }
             }
-
-            if (Helper.ShootDelay(_fireDelay,_dt) && targetEnemy)
+            // стрельба по цели
+            if (Helper.ShootDelay(_fireDelay, _dt) && targetEnemy)
             {
-                print("shoot");
-                StartCoroutine(BulletFly(targetEnemy.transform));
+                 StartCoroutine(BulletFly(targetEnemy.transform));
                 _dt = 0;
             }
-            
-        }
 
+        }
+        
+        // проверка дистанции полета пули.
+        private bool CheckRangeBullet(Transform b, Transform t)
+        {
+            return  Vector3.Distance(b.position, t.position) > 0.3f && Vector3.Distance(b.position, t.position) < _affectedArea;
+        }
+        
+        //псевдопоток для полета пули до цели
         IEnumerator BulletFly(Transform target)
         {
-            var a = Instantiate(_bullet ,_spawnBolt, Quaternion.identity);
-            while (Vector3.Distance(a.transform.position, target.position) >0.3f )
+            var a = GetBullet();
+            while (CheckRangeBullet(a.transform, target))
             {
-                a.transform.position = Vector3.Slerp(a.transform.position,target.position, Time.deltaTime*5);
+                a.transform.position = Vector3.Slerp(a.transform.position, target.position, Time.deltaTime * 5);
                 yield return null;
             }
-            Destroy(a.gameObject);    
+            a.GetComponent<BulletItem>().Off();
         }
         
-        
-        bool CheckArea()
+        // сгенерировать пул объектов
+        void CreatePoolBullets()
         {
-            return Vector3.Distance(targetEnemy.transform.position, transform.position) < _affectedArea;
+            for (int i = 0; i < _cBullet; i++)
+            {
+                var d =Instantiate(_bullet, _spawnBolt, Quaternion.identity, transform);
+                _poolBullets.Add(d);
+                Helper.SetActive(d, false);
+            }
+        }
+        
+        // получить объект из пула
+        GameObject GetBullet()
+        {
+            for (int i = 0; i < _cBullet; i++)
+            {
+                if (!_poolBullets[i].activeInHierarchy)
+                {
+                    _poolBullets[i].transform.position = _spawnBolt;
+                    Helper.SetActive(_poolBullets[i], true);
+                    return _poolBullets[i];
+                }
+            }
+            var a = Instantiate(_bullet, _spawnBolt, Quaternion.identity, transform);
+            return a;
         }
 
+        // проверить находится ли цель в зоне поражения
+        bool CheckArea()
+        {
+            if (!targetEnemy)
+            {
+                return false;
+            }
+            return Vector3.Distance(targetEnemy.transform.position, transform.position) < _affectedArea;
+        }
+        
+        // сканировать зону поражения
         bool ScanArea()
         {
             return Physics.CheckSphere(transform.position, _affectedArea, _enemyLayer);
         }
 
-
+        // выключить возможность нажимать на объект
+        void OffColider()
+        {
+            GetComponent<BoxCollider>().enabled = false;
+        }
+ 
+        // осуществить подписку на единый Update для всей игры
         void subscription()
         {
             GameController.OnUpdate += UpdateScan;
         }
-
 
         private void Awake()
         {

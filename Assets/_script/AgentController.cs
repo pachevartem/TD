@@ -1,32 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ArtelVR;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class AgentController : MonoBehaviour
 {
 	public NavMeshAgent _agent;
-	public Transform Castle;
-
-
-	void Awake()
+	public Vector3 Castle;
+	private Vector3 _startPosition;
+	public float Health = 1000;
+	
+	private void Awake()
 	{
-		_agent.SetDestination(EnemyController.Castl.position);  
+		Castle = EnemyController.Castl.position;
+		_agent = GetComponent<NavMeshAgent>();
+		_agent.speed = 1f;
+	}
+
+	private void OnEnable()
+	{
+		_startPosition = transform.position;	
+		_agent.SetDestination(Castle);
 	}
 
 
-	private void Update()
+	private void OnTriggerEnter(Collider other)
 	{
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-		RaycastHit hit;
-
-		if (Physics.Raycast(ray, out hit, 10000))
+		Health -= 30;
+		if (Health<0)
 		{
-			Debug.DrawLine(ray.origin, hit.point);
-			if (Input.GetMouseButtonUp(0))
-			{
-			}
+			Helper.SetActive(gameObject, false);
 		}
-		
+		print(Health);
+	}
+
+	private void OnDisable()
+	{
+		transform.position = _startPosition;
 	}
 }

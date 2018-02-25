@@ -8,6 +8,8 @@
       <e p="Assets" t="Include">
         <e p="_script" t="Include">
           <e p="AgentController.cs" t="Include" />
+          <e p="AgentExample.cs" t="Include" />
+          <e p="BulletItem.cs" t="Include" />
           <e p="Cell.cs" t="Include" />
           <e p="CellController.cs" t="Include" />
           <e p="EnemyController.cs" t="Include" />
@@ -16,6 +18,7 @@
           <e p="InputController.cs" t="Include" />
           <e p="TowerExample.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
+          <e p="WaveController.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">

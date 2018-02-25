@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ArtelVR;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -9,8 +10,9 @@ public class EnemyController : MonoBehaviour
     public Transform Spawn;
     public GameObject CastlObj;
 
+    
     public static Transform Castl;
-
+    
 
     private void Awake()
     {

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135904233735605578}
   - component: {fileID: 23733589186651698}
   - component: {fileID: 96052617790609426}
+  - component: {fileID: 114615891841380368}
   m_Layer: 0
   m_Name: Bolt
   m_TagString: Untagged
@@ -177,6 +178,20 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114615891841380368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1033288449675722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36678eac20f45ec95de54c86ca09704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Agent:
+    serializedVersion: 2
+    m_Bits: 2147483648
 --- !u!135 &135904233735605578
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -184,7 +199,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1033288449675722}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
