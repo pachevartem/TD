@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace ArtelVR
@@ -17,12 +18,36 @@ namespace ArtelVR
 
 		[Header("Перетяни сюда типы башень (созданные ScriptableObject")]
 		public List<TowerExample> TowersType  = new List<TowerExample>();
+
+		public static event Upgrade CheckMoney = b => { };
+
+		public static float Bank;
 		
+		
+		public Text UiText;
+
+		private void Update()
+		{
+			UiText.text = Bank.ToString();
+			CheckMoney(ChCesh(100));
+		}
+
+		bool ChCesh(float summa)
+		{
+			if (summa<0 && Mathf.Abs(summa)> Bank)
+			{
+				return false;
+			}
+			return Bank >= summa;
+		}
+
+
 		private void Awake()
 		{
 			InputController.OnClickCell += OnOnClickCell;
-			Vector3 a; 
-			
+			Vector3 a;
+			Bank = 100;
+
 		}
 
 		private void OnOnClickCell(CellController cell)
@@ -51,8 +76,6 @@ namespace ArtelVR
 			{
 				currentCell.ConstructorSell(TowersType[1]);
 			}
-			
-			
 		}
 
 

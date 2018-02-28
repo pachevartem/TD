@@ -15,14 +15,13 @@ namespace ArtelVR
         
         //событие нажатия на ячейку. 
         
-        public static event ClickCell OnClickCell  = delegate {  }; //заглушка
+        public static event ClickCell OnClickCell  = delegate {  }; //заглушка        
         
         void Update()
         {
             Raycasting();
         }
 
-        
         void Raycasting()
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

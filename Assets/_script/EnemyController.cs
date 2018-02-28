@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using ArtelVR;
 using UnityEngine;
@@ -9,11 +10,10 @@ public class EnemyController : MonoBehaviour
     public GameObject Enemy;
     public Transform Spawn;
     public GameObject CastlObj;
-
     
     public static Transform Castl;
     
-
+    
     private void Awake()
     {
         Castl = CastlObj.transform;
@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         StartCoroutine(SpawnEnemy(2, 4));
     }
+
 
     IEnumerator SpawnEnemy(int sec, int countEnemy)
     {

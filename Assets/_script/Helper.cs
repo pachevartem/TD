@@ -6,8 +6,9 @@ namespace ArtelVR
 {
     //Обработчик нажатия на ячейку 
     public delegate void ClickCell(CellController cell);
-
-    public delegate void SelectTarget(GameObject aim);
+    public delegate void GC();
+    public delegate void Upgrade(bool b);
+    
     
     public  static class Helper
     {

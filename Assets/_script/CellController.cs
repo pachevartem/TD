@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ArtelVR
 {
     public class CellController : MonoBehaviour
-    {
+    { 
         [Header("Перетащи кнопку для улучшения башни")]
         public GameObject UpgrateUI;
 
@@ -68,6 +68,7 @@ namespace ArtelVR
                 Helper.SetActive(_lvlModels[LvlTower], false);
                 _lvlTower = value;
                 Helper.SetActive(_lvlModels[LvlTower], true);
+                UIController.Bank -= 100;
             }
         }
         #endregion
@@ -88,6 +89,7 @@ namespace ArtelVR
             Helper.SetActive(UpgrateUI, true); // включить кнопку Upgrade
             CreatePoolBullets();  // сгенерировать стартовый надо пуль
             subscription(); // обязательно в окнце конструктора
+            UIController.Bank -= 100;
         }
 
         //Создать башни
@@ -106,7 +108,7 @@ namespace ArtelVR
         {
             LvlTower++;
         }
-
+        
         //начать отсчет
         void TimerOn()
         {
@@ -231,12 +233,22 @@ namespace ArtelVR
         void subscription()
         {
             GameController.OnUpdate += UpdateScan;
+            UIController.CheckMoney += OffUpgrade;
+            
         }
 
         private void Awake()
         {
             Helper.SetActive(UpgrateUI, false);
             
+        }
+
+        void OffUpgrade(bool b)
+        {
+            if (LvlTower< _lvlModels.Count-1)
+            {
+                Helper.SetActive(UpgrateUI, b);                
+            }
         }
     }
 }

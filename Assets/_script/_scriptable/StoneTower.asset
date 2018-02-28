@@ -23,5 +23,5 @@ MonoBehaviour:
     m_Bits: 2147483648
   Raduis: 4
   CountHit: 100
-  FireDelay: 0.3
+  FireDelay: 1
   MultyplayHit: 2

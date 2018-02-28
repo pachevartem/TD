@@ -10,7 +10,8 @@ public class AgentController : MonoBehaviour
 	public NavMeshAgent _agent;
 	public Vector3 Castle;
 	private Vector3 _startPosition;
-	public float Health = 1000;
+	public float Health = 100;
+
 	
 	private void Awake()
 	{
@@ -31,6 +32,7 @@ public class AgentController : MonoBehaviour
 		Health -= 30;
 		if (Health<0)
 		{
+			UIController.Bank += 100;
 			Helper.SetActive(gameObject, false);
 		}
 		print(Health);

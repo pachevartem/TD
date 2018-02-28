@@ -10,7 +10,6 @@
           <e p="AgentController.cs" t="Include" />
           <e p="AgentExample.cs" t="Include" />
           <e p="BulletItem.cs" t="Include" />
-          <e p="Cell.cs" t="Include" />
           <e p="CellController.cs" t="Include" />
           <e p="EnemyController.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
@@ -25,6 +24,11 @@
             <e p="JetBrains" t="Include">
               <e p="Unity3DRider.cs" t="Include" />
             </e>
+          </e>
+        </e>
+        <e p="Simple UI" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="OFL.txt" t="Include" />
           </e>
         </e>
       </e>
