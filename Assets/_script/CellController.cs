@@ -234,7 +234,6 @@ namespace ArtelVR
         {
             GameController.OnUpdate += UpdateScan;
             UIController.CheckMoney += OffUpgrade;
-            
         }
 
         private void Awake()

@@ -30,6 +30,12 @@ namespace ArtelVR
             if (Physics.Raycast(ray, out hit, 10000, CellLayerMask))
             {
                 Debug.DrawLine(ray.origin, hit.point, Color.magenta);
+
+                if (UIController.Bank<100)  //TODO: пахнет гавном
+                {
+                    return;
+                }
+                
                 if (Input.GetMouseButtonUp(0))
                 {
                     OnClickCell (hit.collider.gameObject.GetComponent<CellController>());

@@ -15,7 +15,7 @@ public class AgentController : MonoBehaviour
 	
 	private void Awake()
 	{
-		Castle = EnemyController.Castl.position;
+		Castle = GameController.Instance.SpawnEnemys.transform.position;
 		_agent = GetComponent<NavMeshAgent>();
 		_agent.speed = 1f;
 	}
