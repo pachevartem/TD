@@ -1,52 +1,64 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ArtelVR
 {
-    public class MyPool<T> //TODO: объяснить на примере без T 
+    public class MyPool 
     {
-//        
-//        private List<GameObject> _items = new List<GameObject>();
-//        private int Count;
-//        private Vector3 _startPosition;
-//
-//        private T _mytype;
-//
-//        public MyPool(T item)
-//        {
-//            _mytype = item;
-//        }
-//        
-//        private void SetupPool(int startcount)
-//        {
-//            for (int i = 0; i < startcount; i++)
-//            {
-//                CreateObj();
-//            }
-//        }
-//
-//        GameObject CreateObj()
-//        {
-//            var obj = new GameObject(typeof(T).Name, typeof(T));
-//            obj.SetActive(false);
-//            obj.transform.position = _startPosition;
-//            _items.Add(obj);
-//            return obj;
-//        }
-//
-//        public GameObject GetObj()
-//        {
-//            for (int i = 0; i < _items.Count; i++)
-//            {
-//                if (!_items[i].activeInHierarchy)
-//                {
-//                    return _items[i];
-//                }
-//            }
-//            return CreateObj();
-//        }
-//
-//
+        private IGetObj _getObj;
+        private Vector3 startPosition;
+        private int countpool;
+        private Transform parent;
+      
+        private List<GameObject> poolObj;
+
+        public MyPool(IGetObj getObj, Transform parent, Vector3 startPosition, int countpool)
+        {
+            _getObj = getObj;
+            this.startPosition = startPosition;
+            this.countpool = countpool;
+            this.parent = parent;
+            setPool();
+        }
+        
+        
+        void setPool()
+        {
+            poolObj = new List<GameObject>();
+            for (int i = 0; i < countpool; i++)
+            {
+                CreateObj();
+            }
+        }
+
+        GameObject CreateObj()
+        {
+            var obj = GameObject.Instantiate(_getObj.GetModel());
+            obj.transform.SetParent(parent);
+            obj.SetActive(false);
+            obj.transform.position = startPosition;
+            poolObj.Add(obj);
+            return obj;
+        }
+
+        public GameObject GetPoolObject()
+        {
+            for (int i = 0; i < poolObj.Count; i++)
+            {
+                if (!poolObj[i].activeInHierarchy)
+                {
+                    poolObj[i].SetActive(true);
+                    return poolObj[i];
+                }
+            }
+            var obj = CreateObj();
+                obj.SetActive(true);            
+            return obj;
+        }
+
+        
+       
 
     }
 }

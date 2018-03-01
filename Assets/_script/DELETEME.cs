@@ -1,7 +1,9 @@
-﻿namespace ArtelVR
+﻿using UnityEngine;
+
+namespace ArtelVR
 {
-    public class DELETEME
+    public class DELETEME: MonoBehaviour
     {
-        
+       
     }
 }

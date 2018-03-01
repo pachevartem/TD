@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DelaySec: 0
   Waves:
-  - CountEnemy: 10
+  - CountEnemy: 5
     AgentType:
     - {fileID: 11400000, guid: afa54ac22b3ffd44a83a74356d8672f4, type: 2}
   - CountEnemy: 20

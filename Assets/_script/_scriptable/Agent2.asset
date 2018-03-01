@@ -9,10 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bd04eb5be9c4ea6b842928a7339d2ab, type: 3}
-  m_Name: Agent
+  m_Name: Agent2
   m_EditorClassIdentifier: 
   Name: "\u043D\u044F\u0448\u043A\u0430"
-  ModelEnemy: {fileID: 1440487148056904, guid: 78885276ac5e45742ae062e44b3870ce, type: 2}
+  ModelEnemy: {fileID: 1440487148056904, guid: b15c3644d03ee83499b6f2f300226ff5, type: 2}
   Health: 100
-  AnimatorEnemy: {fileID: 0}
   Damage: 100

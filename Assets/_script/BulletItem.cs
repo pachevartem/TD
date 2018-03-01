@@ -4,7 +4,11 @@ namespace ArtelVR
 {
     public class BulletItem: MonoBehaviour
     {
-        
+        private void OnEnable()
+        {
+            Invoke("Off",1);
+        }
+
         public void Off()
         {
             gameObject.SetActive(false);

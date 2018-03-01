@@ -40,6 +40,21 @@ namespace ArtelVR
         {
             return deltaTime > delay;
         }
-        
+
+        public static List<int> RandomBettwen(int a, int b, int count)
+        {
+            List<int> arr = new List<int>();
+            for (int i = 0; i < count; i++)
+            {
+                arr.Add(UnityEngine.Random.Range(a,b));
+            }
+            return arr;
+        }
+
+    }
+
+    public interface IGetObj
+    {
+        GameObject GetModel();
     }
 }

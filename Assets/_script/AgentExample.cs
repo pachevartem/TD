@@ -3,7 +3,7 @@
 namespace ArtelVR
 {
     [CreateAssetMenu(fileName = "Agent", menuName = "ArtelVR/EnemyType", order = 2)]
-    public class AgentExample: ScriptableObject
+    public class AgentExample: ScriptableObject, IGetObj
     {
         [Header("Имя врага")] 
         public string Name;
@@ -16,5 +16,10 @@ namespace ArtelVR
         
         [Header("Урон")] 
         public float Damage;
+
+        public GameObject GetModel()
+        {
+            return ModelEnemy;
+        }
     }
 }    

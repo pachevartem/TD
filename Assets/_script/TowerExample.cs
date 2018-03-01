@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ArtelVR
 {
 	[CreateAssetMenu(fileName = "Data", menuName = "ArtelVR/TypeTower", order = 1)]
-	public class TowerExample : ScriptableObject
+	public class TowerExample : ScriptableObject, IGetObj
 	{
 		[Header("Название башни")] public string Name;
 		[Header("Модели башни")] public List<GameObject> Levels;
@@ -13,7 +13,7 @@ namespace ArtelVR
 		[Header("Префаб снаряда")] public GameObject Bolt;
 		[Header("Слой врагов")] public LayerMask EnemyLayer;
 		[Header("Радиус Башни")] 
-		[Range(3,5)]
+		[Range(3,15)]
 		public float Raduis;
 		[Header("Урон Башни")] 
 		public float Damage;
@@ -23,6 +23,10 @@ namespace ArtelVR
 		[Range(1,5)]
 		public float MultyplayHit;
 
+		public GameObject GetModel()
+		{
+			return Bolt;
+		}
 	}
 	
 }

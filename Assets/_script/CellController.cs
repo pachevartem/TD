@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ArtelVR
 {
-    public class CellController : MonoBehaviour
+    public class CellController : MonoBehaviour //TODO: Добавить жизни башни и переисовать интерфейс, а не то это пздц
     { 
         [Header("Перетащи кнопку для улучшения башни")]
         public GameObject UpgrateUI;
@@ -59,7 +59,7 @@ namespace ArtelVR
             get { return _lvlTower; }
             set
             {
-                print(value);
+//                print(value);
 
                 if (value >= _lvlModels.Count - 1)
                 {
@@ -240,7 +240,6 @@ namespace ArtelVR
         private void Awake()
         {
             Helper.SetActive(UpgrateUI, false);
-            
         }
 
         void OffUpgrade(bool b)

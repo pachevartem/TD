@@ -33,7 +33,7 @@ public class AgentController : MonoBehaviour
 			UIController.Bank += 100;
 			Helper.SetActive(gameObject, false);
 		}
-		print(Health);
+//		print(Health);
 	}
 
 	private void OnDisable()

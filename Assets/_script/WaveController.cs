@@ -4,90 +4,48 @@ using UnityEngine;
 
 namespace ArtelVR
 {
-    public class WaveController: MonoBehaviour
+    public class WaveController: MonoBehaviour //TODO: Все к херам захешеровать, после того как будет работать
     {
-        public List<AgentExample> EnemyType = new List<AgentExample>();
-        private int _countWave;
-        private int _countEnemy = 100; // TODO: assdas
-        public float SpawnDelay = 2f; 
-
-        public GameObject SpawnZone; //TODO: change in ctor from terrain
-        private Animator _animator;
-
+        public List<MyPool> Enemys = new List<MyPool>();
         
-        private List<GameObject> _poolEnemys;
-
-        private List<List<GameObject>> __enemyPools;
-
-        void __CreatePools()
+        void SetupPool()
         {
-            __enemyPools = new List<List<GameObject>>();
-            for (int i = 0; i < GameController.Instance.GameSettings.EnemyType.Count; i++)
+            GameSettings _settings = GameController.Instance.GameSettings;
+            for (int i = 0; i < _settings.EnemyType.Count; i++)
             {
-                __enemyPools.Add(new List<GameObject>());
+                Enemys.Add(new MyPool(_settings.EnemyType[i], (new GameObject(i+"-Type")).transform, GameController.Instance.SpawnEnemys.transform.position, 2)); 
+            }    
+        }
+
+        IEnumerator GenerateWaves() //TODO: организовать полную связь с ScriptableObject
+        {
+            print("Start Wave");
+            for (int i = 0; i < GameController.Instance.GameSettings.WaveSettings.Waves.Count; i++)
+            {
+                List<int> sequence = Helper.RandomBettwen(0, GameController.Instance.GameSettings.EnemyType.Count , GameController.Instance.GameSettings.WaveSettings.Waves[i].CountEnemy);
+                yield return StartCoroutine(born(sequence));   
+                yield return new WaitForSeconds(3);
+            }
+            print("End wave");
+        }
+        
+        IEnumerator born(List<int> seq)
+        {
+            for (int i = 0; i < seq.Count; i++)
+            {
+                print("Item -" + i);
+
+                Enemys[seq[i]].GetPoolObject();
+                yield return new WaitForSeconds(1);
             }
             
         }
 
 
-        GameObject CreateEnemys(AgentExample ae)
+        private void Awake()
         {
-            var obj = Instantiate(ae.ModelEnemy, SpawnZone.transform.position, Quaternion.identity);
-            obj.name = ae.Name + " - ENEMY";
-            obj.AddComponent<AgentController>();
-            return obj;
+            SetupPool();
+            StartCoroutine (GenerateWaves());
         }
-        
-        void FillPool(List<GameObject> lg)
-        {
-//            _poolEnemys = new List<GameObject>();
-            for (int i = 0; i < _countEnemy; i++)
-            {
-//                _poolEnemys.Add(CreateEnemys(EnemyType[0])); //TODO: Почему тут так?
-//                _poolEnemys[i].SetActive(false); 
-                
-                _poolEnemys.Add(CreateEnemys(EnemyType[0])); //TODO: Почему тут так?
-                _poolEnemys[i].SetActive(false);
-            }
-        }
-        
-        GameObject GetPoolObj()
-        {
-            for (int i = 0; i < _poolEnemys.Count; i++)
-            {
-                if (!_poolEnemys[i].activeInHierarchy)
-                {
-                    return _poolEnemys[i];
-                }
-            }
-            return CreateEnemys(EnemyType[0]); //TODO: Тоже гавно?
-        }
-
-        IEnumerator GenerateWave()
-        {
-            for (int i = 0; i < _countWave; i++)
-            {
-                
-            }
-            yield break;
-        }
-
-        IEnumerator Born()
-        {
-            for (int i = 0; i < _countEnemy; i++)
-            {
-                GetPoolObj().SetActive(true);
-                yield return new WaitForSeconds(SpawnDelay);
-            }
-            yield return null;
-        }
-        
-        void Start()
-        {
-            _countWave = GameController.Instance.GameSettings.CountWave;
-            FillPool();
-            StartCoroutine(Born());
-        }
-
     }
 }
