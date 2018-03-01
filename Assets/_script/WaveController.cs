@@ -13,9 +13,23 @@ namespace ArtelVR
 
         public GameObject SpawnZone; //TODO: change in ctor from terrain
         private Animator _animator;
- 
+
+        
         private List<GameObject> _poolEnemys;
-               
+
+        private List<List<GameObject>> __enemyPools;
+
+        void __CreatePools()
+        {
+            __enemyPools = new List<List<GameObject>>();
+            for (int i = 0; i < GameController.Instance.GameSettings.EnemyType.Count; i++)
+            {
+                __enemyPools.Add(new List<GameObject>());
+            }
+            
+        }
+
+
         GameObject CreateEnemys(AgentExample ae)
         {
             var obj = Instantiate(ae.ModelEnemy, SpawnZone.transform.position, Quaternion.identity);
@@ -24,11 +38,14 @@ namespace ArtelVR
             return obj;
         }
         
-        void FillPool()
+        void FillPool(List<GameObject> lg)
         {
-            _poolEnemys = new List<GameObject>();
+//            _poolEnemys = new List<GameObject>();
             for (int i = 0; i < _countEnemy; i++)
             {
+//                _poolEnemys.Add(CreateEnemys(EnemyType[0])); //TODO: Почему тут так?
+//                _poolEnemys[i].SetActive(false); 
+                
                 _poolEnemys.Add(CreateEnemys(EnemyType[0])); //TODO: Почему тут так?
                 _poolEnemys[i].SetActive(false);
             }
