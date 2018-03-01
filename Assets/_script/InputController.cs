@@ -9,13 +9,8 @@ namespace ArtelVR
     /// </summary>
     public class InputController: MonoBehaviour
     {
-
-        [Header("Укажи слой, на котором находятся ячейки (CELL)")]
-        public LayerMask CellLayerMask;
-        
         //событие нажатия на ячейку. 
-        
-        public static event ClickCell OnClickCell  = delegate {  }; //заглушка        
+        public static event ClickCell OnClickCell;    
         
         void Update()
         {
@@ -27,7 +22,7 @@ namespace ArtelVR
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 10000, CellLayerMask))
+            if (Physics.Raycast(ray, out hit, 10000, GameController.Instance.CellLayerMask))
             {
                 Debug.DrawLine(ray.origin, hit.point, Color.magenta);
 

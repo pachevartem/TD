@@ -12,6 +12,7 @@ namespace ArtelVR
     
     public  static class Helper
     {
+        
         public static void OffCollider(GameObject obj)
         {
             obj.GetComponent<BoxCollider>().enabled = false;
@@ -39,5 +40,6 @@ namespace ArtelVR
         {
             return deltaTime > delay;
         }
+        
     }
 }

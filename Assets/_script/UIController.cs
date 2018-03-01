@@ -13,23 +13,23 @@ namespace ArtelVR
 	{
 		[Header("Канвас с выбором типа башни")]
 		public GameObject UIChooseTower;
-		
-		CellController currentCell; //TODO: Надовспомнить зачем ты статичная
 
-		[Header("Перетяни сюда типы башень (созданные ScriptableObject")]
-		public List<TowerExample> TowersType  = new List<TowerExample>();
+		private CellController _currentCell; //TODO: Надовспомнить зачем ты статичная
 
-		public static event Upgrade CheckMoney = b => { };
+		public static event Upgrade CheckMoney;
 
 		public static float Bank;
 		
-		
 		public Text UiText;
-
+		
 		private void Update()
 		{
 			UiText.text = Bank.ToString();
-			CheckMoney(ChCesh(100));
+			
+			if (CheckMoney!=null)
+			{
+				CheckMoney(ChCesh(100));				
+			}
 		}
 
 		bool ChCesh(float summa)
@@ -40,7 +40,6 @@ namespace ArtelVR
 			}
 			return Bank >= summa;
 		}
-
 
 		private void Awake()
 		{
@@ -53,7 +52,7 @@ namespace ArtelVR
 		private void OnOnClickCell(CellController cell)
 		{
 			SetActiveUIChooseTower(true);
-			currentCell = cell;
+			_currentCell = cell;
 		}
 
 		public void SetActiveUIChooseTower(bool choose)
@@ -62,7 +61,7 @@ namespace ArtelVR
 
 			if (!choose)
 			{
-				currentCell = null;
+				_currentCell = null;
 			}
 		}
 
@@ -70,11 +69,11 @@ namespace ArtelVR
 		{
 			if (numberTower == 0)
 			{
-				currentCell.ConstructorSell(TowersType[0]);
+				_currentCell.ConstructorSell(GameController.Instance.GameSettings.TowerType[0]);
 			}
 			if (numberTower == 1)
 			{
-				currentCell.ConstructorSell(TowersType[1]);
+				_currentCell.ConstructorSell(GameController.Instance.GameSettings.TowerType[1]);
 			}
 		}
 

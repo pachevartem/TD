@@ -1,20 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace ArtelVR
 {
     public class WaveController: MonoBehaviour
     {
         public List<AgentExample> EnemyType = new List<AgentExample>();
-        private int CountEnemy = 10;
-        public float SpawnDelay = 2f;
+        private int _countWave;
+        private int _countEnemy = 100; // TODO: assdas
+        public float SpawnDelay = 2f; 
 
         public GameObject SpawnZone; //TODO: change in ctor from terrain
         private Animator _animator;
-        private List<GameObject> Enemys = new List<GameObject>();
-       
-        
+ 
+        private List<GameObject> _poolEnemys;
+               
         GameObject CreateEnemys(AgentExample ae)
         {
             var obj = Instantiate(ae.ModelEnemy, SpawnZone.transform.position, Quaternion.identity);
@@ -22,34 +23,54 @@ namespace ArtelVR
             obj.AddComponent<AgentController>();
             return obj;
         }
-
-        void CreateWave()
+        
+        void FillPool()
         {
-            for (int i = 0; i < CountEnemy; i++)
+            _poolEnemys = new List<GameObject>();
+            for (int i = 0; i < _countEnemy; i++)
             {
-                Enemys.Add(CreateEnemys(EnemyType[0]));
-                Enemys[i].SetActive(false);
+                _poolEnemys.Add(CreateEnemys(EnemyType[0])); //TODO: Почему тут так?
+                _poolEnemys[i].SetActive(false);
             }
         }
-
-        private int k = 0;
-        void StartWave()
+        
+        GameObject GetPoolObj()
         {
-            if (k > CountEnemy-1)
+            for (int i = 0; i < _poolEnemys.Count; i++)
             {
-                return;
+                if (!_poolEnemys[i].activeInHierarchy)
+                {
+                    return _poolEnemys[i];
+                }
             }
-            Enemys[k].SetActive(true);
-            k++;
+            return CreateEnemys(EnemyType[0]); //TODO: Тоже гавно?
         }
 
+        IEnumerator GenerateWave()
+        {
+            for (int i = 0; i < _countWave; i++)
+            {
+                
+            }
+            yield break;
+        }
+
+        IEnumerator Born()
+        {
+            for (int i = 0; i < _countEnemy; i++)
+            {
+                GetPoolObj().SetActive(true);
+                yield return new WaitForSeconds(SpawnDelay);
+            }
+            yield return null;
+        }
         
         void Start()
         {
-            CreateWave();
-            InvokeRepeating("StartWave",2,1);
+            _countWave = GameController.Instance.GameSettings.CountWave;
+            FillPool();
+            StartCoroutine(Born());
         }
-
 
     }
 }

@@ -121,6 +121,7 @@ namespace ArtelVR
             targetEnemy = target;
         }
         
+        
         // Сканирование местности
         void UpdateScan()
         {

@@ -4,20 +4,22 @@ namespace ArtelVR
 {
     public class GameController: MonoBehaviour
     {
-        public static event GC OnAwake = () => { };
-        public static event GC OnStart = () => { };
-        public static event GC OnUpdate = () => { }; 
+        public static event GC OnUpdate;
 
-     
+        [Header("Перетяни сюда файл с настройками игры настройки игры")]
+        public GameSettings GameSettings;
         
         [Header("Укажи место появление врагов")]
         public GameObject SpawnEnemys;
+
+        [Header("Укажи главный замок")]
+        public GameObject MainCastle;
         
-            
+        [Header("Укажи слой, на котором находятся ячейки (CELL)")]
+        public LayerMask CellLayerMask;
         
         public static GameController Instance;
-
-
+        
         void Singleton()
         {
             if (!Instance)
@@ -31,20 +33,17 @@ namespace ArtelVR
             }
         }
 
-
         private void Awake()
         {
             Singleton();
-            OnAwake();
         }
-
-        private void Start()
-        {
-            OnStart();
-        }
-
+        
         private void Update()
         {
+            if (OnUpdate == null) 
+            {
+                return;               
+            }
             OnUpdate();
         }
     }

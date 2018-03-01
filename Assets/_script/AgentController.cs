@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ArtelVR;
+﻿using ArtelVR;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,7 +13,7 @@ public class AgentController : MonoBehaviour
 	
 	private void Awake()
 	{
-		Castle = GameController.Instance.SpawnEnemys.transform.position;
+		Castle = GameController.Instance.MainCastle.transform.position;
 		_agent = GetComponent<NavMeshAgent>();
 		_agent.speed = 1f;
 	}
@@ -40,6 +38,7 @@ public class AgentController : MonoBehaviour
 
 	private void OnDisable()
 	{
+		Health = 100;
 		transform.position = _startPosition;
 	}
 }
