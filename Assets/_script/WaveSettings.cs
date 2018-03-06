@@ -21,7 +21,6 @@ namespace ArtelVR
             
             [Header("Укажите типы врагов")]
             public List<AgentExample> AgentType;
-            
         }
 
     }

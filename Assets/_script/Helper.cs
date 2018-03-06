@@ -50,6 +50,13 @@ namespace ArtelVR
             }
             return arr;
         }
+        
+       
+        public static void LookTargetY(ref GameObject who, Transform target)
+        {
+            var _dir = Quaternion.LookRotation(target.position - who.transform.position);
+            who.transform.rotation = new Quaternion(who.transform.rotation.x, _dir.y, who.transform.rotation.z, _dir.w);
+        }
 
     }
 

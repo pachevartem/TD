@@ -23,7 +23,7 @@ namespace ArtelVR
         // урон снаряда
         private float _damage; //TODO: перенести в пулю         
 
-        // задержка стрельбы башни
+        // задержка стрельбы башни        
         private float _fireDelay;         
 
         // слой с противниками

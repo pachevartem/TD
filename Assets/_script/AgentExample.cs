@@ -19,7 +19,7 @@ namespace ArtelVR
 
         public GameObject GetModel()
         {
-            return ModelEnemy;
+            return ModelEnemy;        
         }
     }
 }    

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ArtelVR
 {
 	[CreateAssetMenu(fileName = "Data", menuName = "ArtelVR/TypeTower", order = 1)]
-	public class TowerExample : ScriptableObject, IGetObj
+	public class TowerExample : ScriptableObject, IGetObj //TODO: а нежен ли вообще интерфейс
 	{
 		[Header("Название башни")] public string Name;
 		[Header("Модели башни")] public List<GameObject> Levels;
