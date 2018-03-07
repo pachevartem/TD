@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13256dd7-9b49-4276-8369-dd7254d83689" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/BSU_Help.cs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/BSU_Help.cs.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/GameController.cs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/GameController.cs.meta" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs.meta" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TDAR/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.TDAR/.idea/contentModel.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TDAR/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.TDAR/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs" />
+      <change beforePath="$PROJECT_DIR$/Assets/_script/TestRun/Scriptable/t1.asset" afterPath="$PROJECT_DIR$/Assets/_script/TestRun/Scriptable/t1.asset" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,19 +50,19 @@
           <file leaf-file-name="Tower.cs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="285">
-                  <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                <state relative-caret-position="510">
+                  <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
                   <folding>
-                    <marker date="1520440540000" expanded="false" signature="6:52" ph="..." />
-                    <marker date="1520440540000" expanded="true" signature="85:2522" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="110:2520" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="713:1280" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="1318:1882" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="1581:1872" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="1922:2223" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="1975:2027" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="2284:2495" ph="{...}" />
-                    <marker date="1520440540000" expanded="true" signature="2343:2395" ph="{...}" />
+                    <marker date="1520443886000" expanded="false" signature="6:52" ph="..." />
+                    <marker date="1520443886000" expanded="true" signature="85:2856" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="111:2854" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="713:1280" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="1318:2201" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="1882:2005" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="2241:2542" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="2294:2346" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="2604:2802" ph="{...}" />
+                    <marker date="1520443886000" expanded="true" signature="2663:2715" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -398,8 +392,8 @@
           <file leaf-file-name="GameController.cs" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Assets/_script/TestRun/Learn/GameController.cs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="705">
-                  <caret line="47" column="1" lean-forward="true" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+                <state relative-caret-position="675">
+                  <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
                   <folding>
                     <marker date="1520440552000" expanded="true" signature="51:917" ph="{...}" />
                     <marker date="1520440552000" expanded="true" signature="100:915" ph="{...}" />
@@ -482,8 +476,8 @@
         <option value="$PROJECT_DIR$/Assets/_script/TestRun/Scriptable/q.cs" />
         <option value="$PROJECT_DIR$/Assets/_script/TestRun/Scriptable/TypeTower.cs" />
         <option value="$PROJECT_DIR$/Assets/_script/TestRun/Learn/BSU_Help.cs" />
-        <option value="$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs" />
         <option value="$PROJECT_DIR$/Assets/_script/TestRun/Learn/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs" />
       </list>
     </option>
   </component>
@@ -608,12 +602,12 @@
       <workItem from="1519891427423" duration="11050000" />
       <workItem from="1519916453806" duration="5449000" />
       <workItem from="1519932383054" duration="12070000" />
-      <workItem from="1520343411533" duration="34897000" />
+      <workItem from="1520343411533" duration="38075000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123025000" />
+    <option name="totallyTimeSpent" value="126203000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -626,7 +620,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="3200" height="1737" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20149954" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1410,8 +1403,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/_script/TestRun/Learn/GameController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="1" lean-forward="true" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+        <state relative-caret-position="675">
+          <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
             <marker date="1520440552000" expanded="true" signature="51:917" ph="{...}" />
             <marker date="1520440552000" expanded="true" signature="100:915" ph="{...}" />
@@ -1427,19 +1420,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/_script/TestRun/Learn/Tower.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="510">
+          <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
           <folding>
-            <marker date="1520440540000" expanded="false" signature="6:52" ph="..." />
-            <marker date="1520440540000" expanded="true" signature="85:2522" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="110:2520" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="713:1280" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="1318:1882" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="1581:1872" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="1922:2223" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="1975:2027" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="2284:2495" ph="{...}" />
-            <marker date="1520440540000" expanded="true" signature="2343:2395" ph="{...}" />
+            <marker date="1520443886000" expanded="false" signature="6:52" ph="..." />
+            <marker date="1520443886000" expanded="true" signature="85:2856" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="111:2854" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="713:1280" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="1318:2201" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="1882:2005" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="2241:2542" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="2294:2346" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="2604:2802" ph="{...}" />
+            <marker date="1520443886000" expanded="true" signature="2663:2715" ph="{...}" />
           </folding>
         </state>
       </provider>

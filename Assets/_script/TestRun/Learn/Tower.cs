@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ArtelVR.TestRun.Learn
 {
-    public class Tower
+    public class Tower 
     {
         
         private List<float> _damage;
@@ -22,7 +22,7 @@ namespace ArtelVR.TestRun.Learn
         private Vector3 _boltPos;
         private GameObject _currentGun;
 
-        private MyPool _bullets;
+        public MyPool _bullets;
 
 
         private GameObject c;
@@ -54,7 +54,13 @@ namespace ArtelVR.TestRun.Learn
             {
                 Debug.Log(_modelsTower[i].name);
                 _spawnBolt.Add(_modelsTower[i].transform.Find("spawnbolt").gameObject);
+                Debug.Log(_modelsTower[i].transform.Find("gun"));
+                for (int j = 0; j < _modelsTower[i].transform.GetChildCount(); j++)
+                {
+                  Debug.Log(_modelsTower[i].transform.GetChild(j).name + " - j- "+ j);
+                }
                 _modelGun.Add(_modelsTower[i].transform.GetChild(0).Find("gun").gameObject); //TODO: гавно сранное - убил час
+//                _modelsTower[i].transform.G
             }
         }
 
@@ -71,7 +77,7 @@ namespace ArtelVR.TestRun.Learn
             BSU_Help.ChangeLvl(_modelsTower, _lvl);  
         }
 
-       public void RotateGun() // TODO: Subscribe on Update
+        public void RotateGun() // TODO: Subscribe on Update
         {
             if (_currentGun == null) // != null;
             {
@@ -79,8 +85,10 @@ namespace ArtelVR.TestRun.Learn
             }
             
             BSU_Help.LookTargetY(ref _currentGun, c.transform);
-            
         }
+        
+        
+        
         
    
 
