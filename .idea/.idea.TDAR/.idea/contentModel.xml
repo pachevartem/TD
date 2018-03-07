@@ -18,6 +18,16 @@
           <e p="InputController.cs" t="Include" />
           <e p="MyPool.cs" t="Include" />
           <e p="myScenceController.cs" t="Include" />
+          <e p="TestRun" t="Include">
+            <e p="Learn" t="Include">
+              <e p="BSU_Help.cs" t="Include" />
+              <e p="GameController.cs" t="Include" />
+              <e p="Tower.cs" t="Include" />
+            </e>
+            <e p="Scriptable" t="Include">
+              <e p="TypeTower.cs" t="Include" />
+            </e>
+          </e>
           <e p="TowerController.cs" t="Include" />
           <e p="TowerExample.cs" t="Include" />
           <e p="UIController.cs" t="Include" />

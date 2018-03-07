@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b62dbe5d8734a2f8e79c96fba1ddd8, type: 3}
+  m_Name: t1
+  m_EditorClassIdentifier: 
+  NameTower: "\u0411\u0430\u043B\u0438\u0441\u0442\u0430"
+  Damage:
+  - 100
+  - 120
+  - 150
+  AffectedArea:
+  - 4
+  - 5
+  - 6
+  FireSpeed:
+  - 1
+  - 1.2
+  - 1.5
+  Cost:
+  - 100
+  - 110
+  - 120
+  PrefabsTower:
+  - {fileID: 1013302836426090, guid: 75368e914f6e64c418a0874516cf2641, type: 2}
+  BoltModel: {fileID: 1033288449675722, guid: 355ee959de0fb451083c8c5c9cdd22e6, type: 2}
