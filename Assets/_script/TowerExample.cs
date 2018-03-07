@@ -16,7 +16,7 @@ namespace ArtelVR
 		[Range(3,15)]
 		public float Raduis;
 		[Header("Урон Башни")] 
-		public float Damage;
+		public List<float> Damages;
 		[Header("Количество урона")] public float CountHit;
 		[Header("Частота выстрелов")] public float FireDelay;
 		[Header("Преумножитель за уровень ")] 

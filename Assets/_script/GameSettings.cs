@@ -22,9 +22,5 @@ namespace ArtelVR
         [Header("Типы башень")]
         public List<TowerExample> TowerType;
         
-        [Header("Звук окончания строительства")] 
-        public AudioClip CompleteBuilding;
-        
-        
     }
 }
