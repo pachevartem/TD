@@ -18,6 +18,15 @@
           <e p="InputController.cs" t="Include" />
           <e p="MyPool.cs" t="Include" />
           <e p="myScenceController.cs" t="Include" />
+          <e p="NewLogic" t="Include">
+            <e p="Bullets.cs" t="Include" />
+            <e p="BulletsPool.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="GameSettings.cs" t="Include" />
+            <e p="Helper.cs" t="Include" />
+            <e p="Pool.cs" t="Include" />
+            <e p="Tower.cs" t="Include" />
+          </e>
           <e p="TestRun" t="Include">
             <e p="Learn" t="Include">
               <e p="Agent_Test.cs" t="Include" />

@@ -28,12 +28,17 @@ namespace ArtelVR.TestRun.Learn
             }
         }
 
+        
+        
+        
         private void Awake()
         {
             Singleton();
          
         }
 
+        
+        
         private void Update()
         {
 

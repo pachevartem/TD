@@ -8,7 +8,7 @@ using GameController = ArtelVR.TestRun.Learn.GameController; //TODO: this is fuc
 public class Agent_Test : MonoBehaviour {
 	
 	public Transform target;
-	private NavMeshPath path = new NavMeshPath();
+	private NavMeshPath path;
 	private float elapsed = 0.0f;
 
 	public NavMeshAgent _agent;
@@ -20,6 +20,7 @@ public class Agent_Test : MonoBehaviour {
 	
 	
 	void Start () {
+//		path = new NavMeshPath();
 		
 		EnemyType1 = new MyPool(GameController.Instance.Enemies[0],new GameObject("For Type1").transform, SpawnAgent.transform.position,10);
 		EnemyType2 = new MyPool(GameController.Instance.Enemies[1],new GameObject("For Type2").transform, SpawnAgent.transform.position,10);
