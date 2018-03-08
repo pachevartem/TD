@@ -6,12 +6,12 @@ namespace ArtelVR
 {
     public class MyPool 
     {
-        private IGetObj _getObj;
-        private Vector3 startPosition;
-        private int countpool;
-        private Transform parent;
+        protected IGetObj _getObj;
+        protected Vector3 startPosition;
+        protected int countpool;
+        protected Transform parent;
       
-        private List<GameObject> poolObj;
+        protected List<GameObject> poolObj;
 
         public MyPool(IGetObj getObj, Transform parent, Vector3 startPosition, int countpool)
         {
@@ -31,8 +31,7 @@ namespace ArtelVR
                 CreateObj();
             }
         }
-
-        GameObject CreateObj()
+        protected GameObject CreateObj()
         {
             var obj = GameObject.Instantiate(_getObj.GetModel());
             obj.transform.SetParent(parent);

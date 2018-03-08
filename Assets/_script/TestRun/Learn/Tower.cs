@@ -6,61 +6,69 @@ namespace ArtelVR.TestRun.Learn
     public class Tower 
     {
         
+        private int _lvl = 0;
+        
         private List<float> _damage;
         private List<float> _affectedArea;
         private List<float> _fireSpeed;
         private List<float> _cost;
+        private List<float> _delay;
+
+        private Queue<GameObject> _queueEnemys;
         
         private List<GameObject> _modelsTower;
         private List<GameObject> _modelGun;
         private List<GameObject> _spawnBolt;
         
         private GameObject _targetEnemy;
-        
-        private int _lvl = 0;
-
-        private Vector3 _boltPos;
+        private GameObject _targetSpawn;
         private GameObject _currentGun;
-
-        public MyPool _bullets;
-
-
-        private GameObject c;
+//        private GameObject c; //TODO: target: заменить на цель и проверку состояний. 
         
-        public Tower(TypeTower tt) //Constructor
+        
+        
+        private float _dt = 0;
+        
+        private Transform _parent;
+        
+        private Vector3 _boltPos;
+
+        public BulletPool _bullets;
+        
+
+        public Tower(TypeTower tt, Transform parent) //Constructor
         {
             _modelGun = new List<GameObject>();
             _spawnBolt = new List<GameObject>();
             _modelsTower = new List<GameObject>();
+            _queueEnemys = new Queue<GameObject>();
             
+            _parent = parent;
+            _delay = tt.FireSpeed;
             _damage = tt.Damage;
             _affectedArea = tt.AffectedArea;
             _fireSpeed = tt.FireSpeed;
             _cost = tt.Cost;
             
             FillModel(tt);
-            LevelUp(0);
-            _bullets = new MyPool(tt, new GameObject("for_pool").transform, _boltPos, 5); //TODO: поместить в родителя
+            _targetSpawn = _spawnBolt[0];
             
-            c =  new GameObject("Target");
+            LevelUp(0);
+            _bullets = new BulletPool (tt, parent, _boltPos, 5);
+            _targetEnemy = null;
+//            c =  new GameObject("Target");
+//            _targetEnemy = c;
 
         }
 
         void FillModel(TypeTower tt)
         {
-            BSU_Help.InstantiateList(out _modelsTower, tt.PrefabsTower, new GameObject().transform); //TODO: поместить в родителя
+            BSU_Help.InstantiateList(out _modelsTower, tt.PrefabsTower, _parent);
             
-            for (int i = 0; i < tt.PrefabsTower.Count; i++) //TODO: решить вопросы с количеством в Scriptable
+            for (int i = 0; i < tt.PrefabsTower.Count; i++) 
             {
-                Debug.Log(_modelsTower[i].name);
-                _spawnBolt.Add(_modelsTower[i].transform.Find("spawnbolt").gameObject);
-                Debug.Log(_modelsTower[i].transform.Find("gun"));
-                for (int j = 0; j < _modelsTower[i].transform.GetChildCount(); j++)
-                {
-                  Debug.Log(_modelsTower[i].transform.GetChild(j).name + " - j- "+ j);
-                }
-                _modelGun.Add(_modelsTower[i].transform.GetChild(0).Find("gun").gameObject); //TODO: гавно сранное - убил час
-//                _modelsTower[i].transform.G
+                _spawnBolt.Add(_modelsTower[i].transform.Find("spawnbolt").gameObject); //TODO: надо решить как нормально распарсить башню. Может еще один скриптабл. 
+                _modelGun.Add(_modelsTower[i].transform.GetChild(0).Find("gun").gameObject); 
             }
         }
 
@@ -74,6 +82,7 @@ namespace ArtelVR.TestRun.Learn
             _lvl = level;
             _boltPos = _spawnBolt[level].transform.position;
             _currentGun = _modelGun[level];
+            _targetSpawn = _spawnBolt[level];
             BSU_Help.ChangeLvl(_modelsTower, _lvl);  
         }
 
@@ -84,13 +93,52 @@ namespace ArtelVR.TestRun.Learn
                 return;
             }
             
-            BSU_Help.LookTargetY(ref _currentGun, c.transform);
+            BSU_Help.LookTargetY(ref _currentGun, _targetEnemy.transform);
         }
+
+        public void Fire()
+        {
+            
+
+            if (_dt > _delay[_lvl] && _targetEnemy!= null )
+            {            
+                Debug.Log(1);
+                _bullets.GetBullet().Shoot(_targetEnemy,_targetSpawn.transform.position,20,100);
+                _dt = 0;
+            }
+        }
+
+        public void Update()
+        {
+            _dt += Time.deltaTime;
+            
+            
+            if (Physics.CheckSphere(_parent.position, _affectedArea[_lvl], GameController.Instance.EnemyLayer))
+            {
+                var objs = Physics.OverlapSphere(_parent.position, _affectedArea[_lvl], GameController.Instance.EnemyLayer);
+                
+                if (objs.Length==0) return;
+
+                for (var i = 0; i < objs.Length; i++)
+                {
+                    _queueEnemys.Enqueue(objs[i].gameObject);
+                }
+                _targetEnemy = _queueEnemys.Peek();
+            }
+            else
+            {
+                return;
+            }
+            
+            Fire();
+            RotateGun();
+            _queueEnemys.Clear();
+        }
+
         
-        
-        
-        
-   
+
+
+
 
 
 

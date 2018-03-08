@@ -34,7 +34,7 @@ public class TypeTower : ScriptableObject, IGetObj
     
     [Header("Модели башни")] 
     public List<GameObject> PrefabsTower;
-
+    
     [Header("Модель снаярда")]
     public GameObject BoltModel;
 

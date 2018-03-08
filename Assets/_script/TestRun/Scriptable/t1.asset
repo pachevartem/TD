@@ -31,4 +31,4 @@ MonoBehaviour:
   PrefabsTower:
   - {fileID: 1013302836426090, guid: 75368e914f6e64c418a0874516cf2641, type: 2}
   - {fileID: 1296691932205058, guid: 2fa780c2678314fc692e453f15337a3f, type: 2}
-  BoltModel: {fileID: 1033288449675722, guid: 355ee959de0fb451083c8c5c9cdd22e6, type: 2}
+  BoltModel: {fileID: 1033288449675722, guid: ca571d3e003ab43e1bb1740315afba10, type: 2}

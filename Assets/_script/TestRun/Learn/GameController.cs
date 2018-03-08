@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using ArtelVR.TestRun.Scriptable;
+using UnityEngine;
+using UnityEngine.AI;
 
 namespace ArtelVR.TestRun.Learn
 {
@@ -7,9 +10,8 @@ namespace ArtelVR.TestRun.Learn
 
         public static GameController Instance;
         public LayerMask EnemyLayer;
-        public TypeTower tt;
-        public Tower t1;
-        
+
+        public List<TypeEnemy> Enemies;
         
         
         
@@ -29,20 +31,14 @@ namespace ArtelVR.TestRun.Learn
         private void Awake()
         {
             Singleton();
-            t1 = new Tower(tt);
+         
         }
 
-        private int a = 0;
         private void Update()
         {
-            if (Input.GetMouseButtonUp(0))
-            {
-                a++;
-                t1.LevelUp(a);
-            }
 
-            t1.RotateGun();
-            
         }
+
+
     }
 }
