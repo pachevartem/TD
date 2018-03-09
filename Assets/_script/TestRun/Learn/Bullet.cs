@@ -30,6 +30,10 @@ namespace ArtelVR.TestRun.Learn
         {
             while (Vector3.Distance(_target.transform.position, transform.position) > 0.2f)
             {
+                if (!_target.activeInHierarchy)
+                {
+                    break;
+                }
                 transform.position = Vector3.MoveTowards(transform.position, _target.transform.position,
                     Time.deltaTime * _speed);
            

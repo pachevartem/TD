@@ -13,8 +13,6 @@ namespace ArtelVR.TestRun.Learn
         private List<float> _fireSpeed;
         private List<float> _cost;
         private List<float> _delay;
-
-        private Queue<GameObject> _queueEnemys;
         
         private List<GameObject> _modelsTower;
         private List<GameObject> _modelGun;
@@ -41,14 +39,16 @@ namespace ArtelVR.TestRun.Learn
             _modelGun = new List<GameObject>();
             _spawnBolt = new List<GameObject>();
             _modelsTower = new List<GameObject>();
-            _queueEnemys = new Queue<GameObject>();
-            
+           
+           
             _parent = parent;
             _delay = tt.FireSpeed;
             _damage = tt.Damage;
             _affectedArea = tt.AffectedArea;
             _fireSpeed = tt.FireSpeed;
             _cost = tt.Cost;
+
+            _damage = tt.Damage;
             
             FillModel(tt);
             _targetSpawn = _spawnBolt[0];
@@ -65,10 +65,25 @@ namespace ArtelVR.TestRun.Learn
         {
             BSU_Help.InstantiateList(out _modelsTower, tt.PrefabsTower, _parent);
             
-            for (int i = 0; i < tt.PrefabsTower.Count; i++) 
+            for (int i = 0; i < tt.PrefabsTower.Count; i++)  
             {
-                _spawnBolt.Add(_modelsTower[i].transform.Find("spawnbolt").gameObject); //TODO: надо решить как нормально распарсить башню. Может еще один скриптабл. 
-                _modelGun.Add(_modelsTower[i].transform.GetChild(0).Find("gun").gameObject); 
+//                Debug.Log(_modelsTower[i].transform.Find("gun"));
+
+                var find = _modelsTower[i].transform.GetComponentsInChildren<Transform>();
+                foreach (var v in find)
+                {
+                    if (v.name == "gun")
+                    {
+                        _modelGun.Add(v.gameObject);
+                    }
+
+                    if (v.name == "spawnbolt")
+                    {
+                        _spawnBolt.Add(v.gameObject);
+                    }
+                }
+//                _modelGun.Add(_modelsTower[i].transform.Find("gun").gameObject); 
+//                _spawnBolt.Add(_modelsTower[i].transform.Find("spawnbolt").gameObject); //TODO: надо решить как нормально распарсить башню. Может еще один скриптабл. 
             }
         }
 
@@ -98,12 +113,10 @@ namespace ArtelVR.TestRun.Learn
 
         public void Fire()
         {
-            
-
-            if (_dt > _delay[_lvl] && _targetEnemy!= null )
+            if (_dt > _delay[_lvl] && _targetEnemy!= null)
             {            
-                Debug.Log(1);
-                _bullets.GetBullet().Shoot(_targetEnemy,_targetSpawn.transform.position,20,100);
+//                Debug.Log(1);
+                _bullets.GetBullet().Shoot(_targetEnemy,_targetSpawn.transform.position,20,_damage[_lvl]);
                 _dt = 0;
             }
         }
@@ -119,11 +132,8 @@ namespace ArtelVR.TestRun.Learn
                 
                 if (objs.Length==0) return;
 
-                for (var i = 0; i < objs.Length; i++)
-                {
-                    _queueEnemys.Enqueue(objs[i].gameObject);
-                }
-                _targetEnemy = _queueEnemys.Peek();
+                _targetEnemy = BSU_Help.PrioritySearch(objs);
+
             }
             else
             {
@@ -132,7 +142,6 @@ namespace ArtelVR.TestRun.Learn
             
             Fire();
             RotateGun();
-            _queueEnemys.Clear();
         }
 
         

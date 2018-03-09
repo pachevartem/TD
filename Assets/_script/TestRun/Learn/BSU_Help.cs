@@ -33,5 +33,23 @@ namespace ArtelVR.TestRun.Learn
             who.transform.rotation = new Quaternion(who.transform.rotation.x, _dir.y, who.transform.rotation.z, _dir.w);
         }
 
+        public static GameObject PrioritySearch(Collider[] colliders)
+        {
+            float max = float.MaxValue;
+            int search = 0;
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                var current = colliders[i].gameObject.GetComponent<Agent>().GetDistance();
+                if (current < max)
+                {
+                    max = current;
+                    search = i;
+                }
+            }
+            return colliders[search].gameObject;
+
+        }
+
+
     }
 }

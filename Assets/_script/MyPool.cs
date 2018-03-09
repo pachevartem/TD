@@ -33,7 +33,6 @@ namespace ArtelVR
         }
         protected GameObject CreateObj()
         {
-            Debug.Log(1);
             var obj = GameObject.Instantiate(_getObj.GetModel());
             obj.transform.SetParent(parent);
             obj.SetActive(false);
@@ -56,9 +55,6 @@ namespace ArtelVR
                 obj.SetActive(true);            
             return obj;
         }
-
-        
-       
 
     }
 }

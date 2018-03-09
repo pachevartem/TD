@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a47d28611c46fab1cbaac62fa3e524, type: 3}
   m_Name: 1
   m_EditorClassIdentifier: 
-  Model: {fileID: 0}
+  Model: {fileID: 1592233127271132, guid: 7fa1cac53e39343d6b0d13fa986c3297, type: 2}
   Health: 0
