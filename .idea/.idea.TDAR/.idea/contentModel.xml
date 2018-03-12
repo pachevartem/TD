@@ -6,23 +6,17 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="_script" t="Include">
-          <e p="AgentController.cs" t="Include" />
+          <e p="Agent.cs" t="Include" />
           <e p="AgentExample.cs" t="Include" />
-          <e p="BulletItem.cs" t="Include" />
-          <e p="CellController.cs" t="Include" />
-          <e p="CellExample.cs" t="Include" />
-          <e p="DELETEME.cs" t="Include" />
+          <e p="BSU_Help.cs" t="Include" />
+          <e p="Bullet.cs" t="Include" />
+          <e p="BulletPool.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
-          <e p="GameSettings.cs" t="Include" />
-          <e p="Helper.cs" t="Include" />
-          <e p="InputController.cs" t="Include" />
-          <e p="MyPool.cs" t="Include" />
-          <e p="myScenceController.cs" t="Include" />
-          <e p="TowerController.cs" t="Include" />
+          <e p="Pool.cs" t="Include" />
+          <e p="Tower.cs" t="Include" />
           <e p="TowerExample.cs" t="Include" />
-          <e p="UIController.cs" t="Include" />
-          <e p="WaveController.cs" t="Include" />
-          <e p="WaveSettings.cs" t="Include" />
+          <e p="TypeEnemy.cs" t="Include" />
+          <e p="TypeTower.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -45,6 +39,6 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_TDAR.952082897.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2017.2/resharper-host/local/Transient/ReSharperHost/v10/SolutionCaches/_TDAR.1422659619.00" t="ExcludeRecursive" />
   </component>
 </project>
