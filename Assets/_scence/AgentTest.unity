@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000004, guid: b063e0165d8694130b809a144b308c6b,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -1521,9 +1522,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1073741824
   Enemies:
-  - {fileID: 11400000, guid: 68e82624956094275a096c9e9d260dad, type: 2}
-  - {fileID: 11400000, guid: 68e82624956094275a096c9e9d260dad, type: 2}
-  TT: {fileID: 11400000, guid: 7517de3457058456eb3f44e312385b46, type: 2}
+  - {fileID: 11400000, guid: 60611ad80425841fab6d60fc1bb99189, type: 2}
+  - {fileID: 11400000, guid: 60611ad80425841fab6d60fc1bb99189, type: 2}
+  TT: {fileID: 11400000, guid: 208fa95b798824e7a8e7792603db79da, type: 2}
   Main: {fileID: 1289236491}
   SpawnAgent: {fileID: 186527479}
   MainCastle: {fileID: 1027017252}

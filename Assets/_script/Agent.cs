@@ -45,6 +45,7 @@ namespace BSU
   private void OnEnable()
   {
    _path = new NavMeshPath();
+   _startPosition = transform.position;
    _agent.SetDestination(GameController.Instance.MainCastle.position);
   }
 
