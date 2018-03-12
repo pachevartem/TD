@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ArtelVR
+namespace BSU
 {
+	/// <summary>
+	/// Файли настроек для вариантов типов Башень
+	/// </summary>
 	[CreateAssetMenu(fileName = "Data", menuName = "ArtelVR/TypeTower", order = 1)]
 	public class TowerExample : ScriptableObject, IGetObj //TODO: а нежен ли вообще интерфейс
 	{
@@ -23,6 +25,11 @@ namespace ArtelVR
 		[Range(1,5)]
 		public float MultyplayHit;
 
+		
+		/// <summary>
+		/// Интерфейс для получения информации об бъекте для Pool'a
+		/// </summary>
+		/// <returns></returns>
 		public GameObject GetModel()
 		{
 			return Bolt;

@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
-namespace ArtelVR
+
+namespace BSU
 {
+    /// <summary>
+    /// Файл настроек для типо агентов
+    /// </summary>
     [CreateAssetMenu(fileName = "Agent", menuName = "ArtelVR/EnemyType", order = 2)]
     public class AgentExample: ScriptableObject, IGetObj
     {

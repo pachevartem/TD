@@ -3,78 +3,20 @@
   <component name="ContentModelStore">
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
-      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="_script" t="Include">
-          <e p="AgentController.cs" t="Include" />
+          <e p="Agent.cs" t="Include" />
           <e p="AgentExample.cs" t="Include" />
-          <e p="BulletItem.cs" t="Include" />
-          <e p="CellController.cs" t="Include" />
-          <e p="CellExample.cs" t="Include" />
-          <e p="DELETEME.cs" t="Include" />
+          <e p="BSU_Help.cs" t="Include" />
+          <e p="Bullet.cs" t="Include" />
+          <e p="BulletPool.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
-          <e p="GameSettings.cs" t="Include" />
-          <e p="Helper.cs" t="Include" />
-          <e p="InputController.cs" t="Include" />
-          <e p="MyPool.cs" t="Include" />
-          <e p="myScenceController.cs" t="Include" />
-          <e p="NewLogic" t="Include">
-            <e p="Bullets.cs" t="Include" />
-            <e p="BulletsPool.cs" t="Include" />
-            <e p="GameManager.cs" t="Include" />
-            <e p="GameSettings.cs" t="Include" />
-            <e p="Helper.cs" t="Include" />
-            <e p="Pool.cs" t="Include" />
-            <e p="Tower.cs" t="Include" />
-          </e>
-          <e p="TestRun" t="Include">
-            <e p="Learn" t="Include">
-              <e p="Agent.cs" t="Include" />
-              <e p="BSU_Help.cs" t="Include" />
-              <e p="Bullet.cs" t="Include" />
-              <e p="BulletPool.cs" t="Include" />
-              <e p="GameController.cs" t="Include" />
-              <e p="IGetBullet.cs" t="Include" />
-              <e p="myHandlerVyf.cs" t="Include" />
-              <e p="Tower.cs" t="Include" />
-            </e>
-            <e p="Scriptable" t="Include">
-              <e p="TypeEnemy.cs" t="Include" />
-              <e p="TypeTower.cs" t="Include" />
-            </e>
-          </e>
-          <e p="TowerController.cs" t="Include" />
+          <e p="Pool.cs" t="Include" />
+          <e p="Tower.cs" t="Include" />
           <e p="TowerExample.cs" t="Include" />
-          <e p="UIController.cs" t="Include" />
-          <e p="WaveController.cs" t="Include" />
-          <e p="WaveSettings.cs" t="Include" />
-        </e>
-        <e p="Editor" t="Include">
-          <e p="Vuforia" t="Include">
-            <e p="CylinderTargetTextures" t="Include">
-              <e p="VuforiaMars_Images" t="Include">
-                <e p="authoringinfo.xml" t="Include" />
-              </e>
-            </e>
-            <e p="Emulator" t="Include">
-              <e p="VuforiaEmulator.xml" t="Include" />
-            </e>
-            <e p="ForPrint" t="Include">
-              <e p="ModelTarget" t="Include">
-                <e p="readme_3dprint.txt" t="Include" />
-              </e>
-            </e>
-            <e p="TargetsetData" t="Include">
-              <e p="VuforiaMars_Object_info.xml" t="Include" />
-            </e>
-            <e p="VuforiaMars_ModelTarget" t="Include">
-              <e p="authoringinfo.xml" t="Include" />
-            </e>
-            <e p="VuforiaMars_VuMark" t="Include">
-              <e p="authoringinfo.xml" t="Include" />
-            </e>
-          </e>
+          <e p="TypeEnemy.cs" t="Include" />
+          <e p="TypeTower.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -88,37 +30,6 @@
             <e p="OFL.txt" t="Include" />
           </e>
         </e>
-        <e p="StreamingAssets" t="Include">
-          <e p="Vuforia" t="Include">
-            <e p="BSU.xml" t="Include" />
-            <e p="VuforiaMars_Images.xml" t="Include" />
-            <e p="VuforiaMars_ModelTarget.xml" t="Include" />
-            <e p="VuforiaMars_Object_OT.xml" t="Include" />
-            <e p="VuforiaMars_VuMark.xml" t="Include" />
-          </e>
-        </e>
-        <e p="Vuforia" t="Include">
-          <e p="Editor" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="OpenSourceInitializer.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="DefaultInitializationErrorHandler.cs" t="Include" />
-            <e p="DefaultTrackableEventHandler.cs" t="Include" />
-            <e p="MyDefaultTrackableEventHandler.cs" t="Include" />
-          </e>
-          <e p="Shaders" t="Include">
-            <e p="BrightTexture.shader" t="Include" />
-            <e p="CameraDiffuse.shader" t="Include" />
-            <e p="ColoredLines.shader" t="Include" />
-            <e p="DepthContour.shader" t="Include" />
-            <e p="DepthMask.shader" t="Include" />
-            <e p="OutlineOpaque.shader" t="Include" />
-            <e p="Text3D.shader" t="Include" />
-            <e p="VertexLitWithZ.shader" t="Include" />
-          </e>
-        </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
@@ -128,6 +39,6 @@
         <e p="bin" t="ExcludeRecursive" />
       </e>
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_TDAR.952082897.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2017.2/resharper-host/local/Transient/ReSharperHost/v10/SolutionCaches/_TDAR.1422659619.00" t="ExcludeRecursive" />
   </component>
 </project>
